@@ -1,0 +1,4 @@
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interop/how-to-access-office-onterop-objects
+
+
+http://wladm.narod.ru/C_Sharp/comexcel.html#top
