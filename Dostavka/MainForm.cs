@@ -19,6 +19,7 @@ namespace Dostavka
 	/// </summary>
 	public partial class MainForm : Form
 	{
+		private String pathFile;
 		public MainForm()
 		{
 			//
@@ -29,6 +30,17 @@ namespace Dostavka
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		}
+		void Button1Click(object sender, EventArgs e)
+		{
+			if(whereIsTheFile.ShowDialog() == DialogResult.OK)
+			{
+				pathFile = whereIsTheFile.SelectedPath;
+			}
+		}
+		void MainFormLoad(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

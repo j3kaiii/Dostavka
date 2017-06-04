@@ -2,3 +2,7 @@ https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interop/how-to-
 
 
 http://wladm.narod.ru/C_Sharp/comexcel.html#top
+
+https://www.codeproject.com/Tips/696864/Working-with-Excel-Using-Csharp
+
+https://support.microsoft.com/ru-ru/help/306023/how-to-transfer-data-to-an-excel-workbook-by-using-visual-c-2005-or-visual-c-.net

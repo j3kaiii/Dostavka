@@ -1,0 +1,9 @@
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\bin\Debug\Dostavka.exe.config
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\bin\Debug\Dostavka.exe
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\bin\Debug\Dostavka.pdb
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.MainForm.resources
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.Resource1.resources
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.csproj.GenerateResource.Cache
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.exe
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.pdb

@@ -22,6 +22,7 @@ namespace Dostavka
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.FolderBrowserDialog whereIsTheFile;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -52,6 +53,7 @@ namespace Dostavka
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.whereIsTheFile = new System.Windows.Forms.FolderBrowserDialog();
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -116,6 +118,7 @@ namespace Dostavka
 			this.button1.Size = new System.Drawing.Size(32, 32);
 			this.button1.TabIndex = 6;
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
@@ -142,6 +145,7 @@ namespace Dostavka
 			this.Controls.Add(this.textBox1);
 			this.Name = "MainForm";
 			this.Text = "Dostavka";
+			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
