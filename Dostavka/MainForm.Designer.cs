@@ -14,15 +14,16 @@ namespace Dostavka
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.TextBox todayBox;
+		private System.Windows.Forms.TextBox NomberBox;
+		private System.Windows.Forms.TextBox ProductBox;
+		private System.Windows.Forms.TextBox ClientBox;
+		private System.Windows.Forms.TextBox PhoneBox;
+		private System.Windows.Forms.TextBox AddressBox;
+		private System.Windows.Forms.Button GoButton;
 		private System.Windows.Forms.FolderBrowserDialog whereIsTheFile;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
+		private System.Windows.Forms.OpenFileDialog openFile;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -45,104 +46,104 @@ namespace Dostavka
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.todayBox = new System.Windows.Forms.TextBox();
+			this.NomberBox = new System.Windows.Forms.TextBox();
+			this.ProductBox = new System.Windows.Forms.TextBox();
+			this.ClientBox = new System.Windows.Forms.TextBox();
+			this.PhoneBox = new System.Windows.Forms.TextBox();
+			this.AddressBox = new System.Windows.Forms.TextBox();
+			this.GoButton = new System.Windows.Forms.Button();
 			this.whereIsTheFile = new System.Windows.Forms.FolderBrowserDialog();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
+			this.openFile = new System.Windows.Forms.OpenFileDialog();
 			this.SuspendLayout();
 			// 
-			// textBox1
+			// todayBox
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox1.Location = new System.Drawing.Point(75, 61);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(152, 29);
-			this.textBox1.TabIndex = 0;
-			this.textBox1.Text = "Дата доставки";
+			this.todayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.todayBox.Location = new System.Drawing.Point(75, 61);
+			this.todayBox.Name = "todayBox";
+			this.todayBox.Size = new System.Drawing.Size(152, 29);
+			this.todayBox.TabIndex = 0;
+			this.todayBox.Text = "Дата доставки";
 			// 
-			// textBox2
+			// NomberBox
 			// 
-			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox2.Location = new System.Drawing.Point(259, 61);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(158, 29);
-			this.textBox2.TabIndex = 1;
-			this.textBox2.Text = "Номер расходки";
+			this.NomberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NomberBox.Location = new System.Drawing.Point(259, 61);
+			this.NomberBox.Name = "NomberBox";
+			this.NomberBox.Size = new System.Drawing.Size(158, 29);
+			this.NomberBox.TabIndex = 1;
+			this.NomberBox.Text = "Номер расходки";
+			this.NomberBox.Enter += new System.EventHandler(this.NomberBoxEnter);
 			// 
-			// textBox3
+			// ProductBox
 			// 
-			this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox3.Location = new System.Drawing.Point(75, 107);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(342, 29);
-			this.textBox3.TabIndex = 2;
-			this.textBox3.Text = "Наименование товара";
+			this.ProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ProductBox.Location = new System.Drawing.Point(12, 107);
+			this.ProductBox.Name = "ProductBox";
+			this.ProductBox.Size = new System.Drawing.Size(461, 29);
+			this.ProductBox.TabIndex = 2;
+			this.ProductBox.Text = "Наименование товара";
+			this.ProductBox.Enter += new System.EventHandler(this.ProductBoxEnter);
 			// 
-			// textBox4
+			// ClientBox
 			// 
-			this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox4.Location = new System.Drawing.Point(75, 156);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(342, 29);
-			this.textBox4.TabIndex = 3;
-			this.textBox4.Text = "ФИО клиента";
+			this.ClientBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ClientBox.Location = new System.Drawing.Point(12, 156);
+			this.ClientBox.Name = "ClientBox";
+			this.ClientBox.Size = new System.Drawing.Size(461, 29);
+			this.ClientBox.TabIndex = 3;
+			this.ClientBox.Text = "ФИО клиента";
+			this.ClientBox.Enter += new System.EventHandler(this.ClientBoxEnter);
 			// 
-			// textBox5
+			// PhoneBox
 			// 
-			this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox5.Location = new System.Drawing.Point(75, 204);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(342, 29);
-			this.textBox5.TabIndex = 4;
-			this.textBox5.Text = "Номер телефона";
+			this.PhoneBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.PhoneBox.Location = new System.Drawing.Point(12, 204);
+			this.PhoneBox.Name = "PhoneBox";
+			this.PhoneBox.Size = new System.Drawing.Size(461, 29);
+			this.PhoneBox.TabIndex = 4;
+			this.PhoneBox.Text = "Номер телефона";
+			this.PhoneBox.Enter += new System.EventHandler(this.PhoneBoxEnter);
 			// 
-			// textBox6
+			// AddressBox
 			// 
-			this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBox6.Location = new System.Drawing.Point(75, 258);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(342, 29);
-			this.textBox6.TabIndex = 5;
-			this.textBox6.Text = "Адрес доставки";
+			this.AddressBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.AddressBox.Location = new System.Drawing.Point(12, 258);
+			this.AddressBox.Name = "AddressBox";
+			this.AddressBox.Size = new System.Drawing.Size(461, 29);
+			this.AddressBox.TabIndex = 5;
+			this.AddressBox.Text = "Адрес доставки";
+			this.AddressBox.Enter += new System.EventHandler(this.AddressBoxEnter);
 			// 
-			// button1
+			// GoButton
 			// 
-			this.button1.Image = global::Dostavka.Resource1.set_icon1;
-			this.button1.Location = new System.Drawing.Point(12, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(32, 32);
-			this.button1.TabIndex = 6;
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
+			this.GoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.GoButton.Location = new System.Drawing.Point(194, 308);
+			this.GoButton.Name = "GoButton";
+			this.GoButton.Size = new System.Drawing.Size(85, 38);
+			this.GoButton.TabIndex = 7;
+			this.GoButton.Text = "Печать";
+			this.GoButton.UseVisualStyleBackColor = true;
+			this.GoButton.Click += new System.EventHandler(this.Button2Click);
 			// 
-			// button2
+			// openFile
 			// 
-			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.button2.Location = new System.Drawing.Point(194, 308);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(85, 38);
-			this.button2.TabIndex = 7;
-			this.button2.Text = "Печать";
-			this.button2.UseVisualStyleBackColor = true;
+			this.openFile.FileName = "openFileDialog1";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(485, 364);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.textBox6);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.GoButton);
+			this.Controls.Add(this.AddressBox);
+			this.Controls.Add(this.PhoneBox);
+			this.Controls.Add(this.ClientBox);
+			this.Controls.Add(this.ProductBox);
+			this.Controls.Add(this.NomberBox);
+			this.Controls.Add(this.todayBox);
 			this.Name = "MainForm";
 			this.Text = "Dostavka";
 			this.Load += new System.EventHandler(this.MainFormLoad);
