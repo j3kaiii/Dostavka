@@ -12,6 +12,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
+
+using System.Reflection;
 
 namespace Dostavka
 {
@@ -22,11 +25,14 @@ namespace Dostavka
 	{
 		private String pathFile;
 		private String pathCfg = "config.txt";
+		//private String currDir;
 		
 		private static Excel.Workbook MyBook = null;
 		private static Excel.Application MyApp = null;
 		private static Excel.Worksheet MySheet = null;
 		private Excel.Range MyCells;
+		private Boolean isNewFile = false;
+		private int summa;
 		
 		public MainForm()
 		{
@@ -53,6 +59,7 @@ namespace Dostavka
 				{
 					sw.WriteLine(pathFile);
 				}
+				isNewFile = true;
 			}
 			/*----- получаем из конфига путь файла exel -----------*/
 			using (StreamReader sr = File.OpenText(pathCfg))
@@ -69,10 +76,13 @@ namespace Dostavka
 			MyApp.Visible = false;
 			MyBook = MyApp.Workbooks.Open(pathFile);
 			MySheet = (Excel.Worksheet)MyBook.Sheets[1];
+			/*----  находим последнюю запись  ----*/
 			int lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
+			/*сравниваем последнюю дату в таблице с датой этого дня*/
+			
 			int newRow = lastRow + 1;
 			/*----  рисуем границы  ----*/
-			MyCells = MySheet.get_Range("A" + newRow, "F" + newRow);
+			MyCells = MySheet.get_Range("A" + newRow, "G" + newRow);
 			MyCells.Borders.ColorIndex = 1;
 			MyCells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 			MyCells.Borders.Weight = Excel.XlBorderWeight.xlMedium;
@@ -85,9 +95,27 @@ namespace Dostavka
 			MySheet.Cells[newRow, "D"] = ClientBox.Text;
 			MySheet.Cells[newRow, "E"] = PhoneBox.Text;
 			MySheet.Cells[newRow, "F"] = AddressBox.Text;
+			MySheet.Cells[newRow, "G"] = "250";
 			
 			MyBook.Save();
 			MyApp.Quit();
+			
+			/*-----------  заполняем талон для печати  -----------*/
+			/*--  талон автоматом сохранится в папку с прогой   --*/
+			/*-------  старый файл при наличии перепишется  ------*/
+			Word._Application MyWord = new Word.Application();
+			Object MyFile = Environment.CurrentDirectory + "\\talon.dotx";
+			
+			MyWord.Visible = true;
+			Word._Document MyDoc = MyWord.Documents.Add(ref MyFile);
+			MyDoc.Bookmarks["date"].Range.Text = todayBox.Text;
+			MyDoc.Bookmarks["nomer"].Range.Text = NomberBox.Text;
+			MyDoc.Bookmarks["product"].Range.Text = ProductBox.Text;
+			MyDoc.Bookmarks["client"].Range.Text = ClientBox.Text;
+			MyDoc.Bookmarks["phone"].Range.Text = PhoneBox.Text;
+			MyDoc.Bookmarks["address"].Range.Text = AddressBox.Text;
+			MyDoc.SaveAs(FileName: Environment.CurrentDirectory + "\\for_print.docx");
+			
 		}
 		void NomberBoxEnter(object sender, EventArgs e)
 		{
