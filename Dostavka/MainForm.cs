@@ -23,16 +23,18 @@ namespace Dostavka
 	/// </summary>
 	public partial class MainForm : Form
 	{
-		private String pathFile;
+		private String pathFile = "";
 		private String pathCfg = "config.txt";
 		//private String currDir;
+		DialogForm df = new DialogForm();
+		
 		
 		private static Excel.Workbook MyBook = null;
 		private static Excel.Application MyApp = null;
 		private static Excel.Worksheet MySheet = null;
 		private Excel.Range MyCells;
-		private Boolean isNewFile = false;
-		private int summa;
+		//private Boolean isNewFile = false;
+		//private int summa;
 		
 		public MainForm()
 		{
@@ -49,17 +51,32 @@ namespace Dostavka
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			/*---- создаем конфиг при первом запуске и выбираем папку для Exel ---*/
-			if(!File.Exists(pathCfg))
+			while(!File.Exists(pathCfg))
 			{
 				if(openFile.ShowDialog() == DialogResult.OK)
 				{
 					pathFile = openFile.FileName;
 				}
-				using (StreamWriter sw = File.CreateText(pathCfg))
+				
+				if (!pathFile.Equals(""))
 				{
-					sw.WriteLine(pathFile);
+					using (StreamWriter sw = File.CreateText(pathCfg))
+					{
+						sw.WriteLine(pathFile);
+									
+					}
 				}
-				isNewFile = true;
+				else
+				{
+					df.ShowDialog();
+					
+					if (df.DialogResult == DialogResult.Cancel)
+					{
+						Environment.Exit(0);
+						
+					}
+				}
+				//isNewFile = true;
 			}
 			/*----- получаем из конфига путь файла exel -----------*/
 			using (StreamReader sr = File.OpenText(pathCfg))
@@ -75,7 +92,8 @@ namespace Dostavka
 			MyApp = new Excel.Application();
 			MyApp.Visible = false;
 			MyBook = MyApp.Workbooks.Open(pathFile);
-			MySheet = (Excel.Worksheet)MyBook.Sheets[1];
+			if (checkBox1.Checked) MySheet = (Excel.Worksheet)MyBook.Sheets[1];
+			else MySheet = (Excel.Worksheet)MyBook.Sheets[2];
 			/*----  находим последнюю запись  ----*/
 			int lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
 			/*сравниваем последнюю дату в таблице с датой этого дня*/
@@ -106,7 +124,7 @@ namespace Dostavka
 			Word._Application MyWord = new Word.Application();
 			Object MyFile = Environment.CurrentDirectory + "\\talon.dotx";
 			
-			MyWord.Visible = true;
+			MyWord.Visible = false;
 			Word._Document MyDoc = MyWord.Documents.Add(ref MyFile);
 			MyDoc.Bookmarks["date"].Range.Text = todayBox.Text;
 			MyDoc.Bookmarks["nomer"].Range.Text = NomberBox.Text;
@@ -115,6 +133,22 @@ namespace Dostavka
 			MyDoc.Bookmarks["phone"].Range.Text = PhoneBox.Text;
 			MyDoc.Bookmarks["address"].Range.Text = AddressBox.Text;
 			MyDoc.SaveAs(FileName: Environment.CurrentDirectory + "\\for_print.docx");
+			
+			/*------  печатаем документ  -------*/
+			object copies = "1";
+			object pages = "1";
+			object range = Word.WdPrintOutRange.wdPrintCurrentPage;
+			object items = Word.WdPrintOutItem.wdPrintDocumentContent;
+			object pageType = Word.WdPrintOutPages.wdPrintAllPages;
+			object oTrue = true;
+			object oFalse = false;
+			object missing = Type.Missing;
+			MyDoc.PrintOut(ref oTrue, ref oFalse,ref range, ref missing, ref missing, ref missing,
+			               ref items, ref copies, ref pages, ref pageType, ref oFalse, ref oTrue,
+							ref missing, ref oFalse, ref missing, ref missing, ref missing, ref missing);
+			object doNotSave = Word.WdSaveOptions.wdDoNotSaveChanges;
+			MyDoc.Close(ref doNotSave, ref missing, ref missing);
+			MyWord.Quit();
 			
 		}
 		void NomberBoxEnter(object sender, EventArgs e)

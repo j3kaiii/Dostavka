@@ -24,6 +24,13 @@ namespace Dostavka
 		private System.Windows.Forms.FolderBrowserDialog whereIsTheFile;
 		private System.Windows.Forms.SaveFileDialog saveDialog;
 		private System.Windows.Forms.OpenFileDialog openFile;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.CheckBox checkBox1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -56,6 +63,13 @@ namespace Dostavka
 			this.whereIsTheFile = new System.Windows.Forms.FolderBrowserDialog();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openFile = new System.Windows.Forms.OpenFileDialog();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// todayBox
@@ -70,7 +84,7 @@ namespace Dostavka
 			// NomberBox
 			// 
 			this.NomberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.NomberBox.Location = new System.Drawing.Point(259, 61);
+			this.NomberBox.Location = new System.Drawing.Point(331, 61);
 			this.NomberBox.Name = "NomberBox";
 			this.NomberBox.Size = new System.Drawing.Size(158, 29);
 			this.NomberBox.TabIndex = 1;
@@ -80,9 +94,9 @@ namespace Dostavka
 			// ProductBox
 			// 
 			this.ProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.ProductBox.Location = new System.Drawing.Point(12, 107);
+			this.ProductBox.Location = new System.Drawing.Point(12, 127);
 			this.ProductBox.Name = "ProductBox";
-			this.ProductBox.Size = new System.Drawing.Size(461, 29);
+			this.ProductBox.Size = new System.Drawing.Size(560, 29);
 			this.ProductBox.TabIndex = 2;
 			this.ProductBox.Text = "Наименование товара";
 			this.ProductBox.Enter += new System.EventHandler(this.ProductBoxEnter);
@@ -90,9 +104,9 @@ namespace Dostavka
 			// ClientBox
 			// 
 			this.ClientBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.ClientBox.Location = new System.Drawing.Point(12, 156);
+			this.ClientBox.Location = new System.Drawing.Point(12, 200);
 			this.ClientBox.Name = "ClientBox";
-			this.ClientBox.Size = new System.Drawing.Size(461, 29);
+			this.ClientBox.Size = new System.Drawing.Size(560, 29);
 			this.ClientBox.TabIndex = 3;
 			this.ClientBox.Text = "ФИО клиента";
 			this.ClientBox.Enter += new System.EventHandler(this.ClientBoxEnter);
@@ -100,9 +114,9 @@ namespace Dostavka
 			// PhoneBox
 			// 
 			this.PhoneBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.PhoneBox.Location = new System.Drawing.Point(12, 204);
+			this.PhoneBox.Location = new System.Drawing.Point(12, 274);
 			this.PhoneBox.Name = "PhoneBox";
-			this.PhoneBox.Size = new System.Drawing.Size(461, 29);
+			this.PhoneBox.Size = new System.Drawing.Size(560, 29);
 			this.PhoneBox.TabIndex = 4;
 			this.PhoneBox.Text = "Номер телефона";
 			this.PhoneBox.Enter += new System.EventHandler(this.PhoneBoxEnter);
@@ -110,9 +124,9 @@ namespace Dostavka
 			// AddressBox
 			// 
 			this.AddressBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.AddressBox.Location = new System.Drawing.Point(12, 258);
+			this.AddressBox.Location = new System.Drawing.Point(12, 344);
 			this.AddressBox.Name = "AddressBox";
-			this.AddressBox.Size = new System.Drawing.Size(461, 29);
+			this.AddressBox.Size = new System.Drawing.Size(560, 29);
 			this.AddressBox.TabIndex = 5;
 			this.AddressBox.Text = "Адрес доставки";
 			this.AddressBox.Enter += new System.EventHandler(this.AddressBoxEnter);
@@ -120,7 +134,7 @@ namespace Dostavka
 			// GoButton
 			// 
 			this.GoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.GoButton.Location = new System.Drawing.Point(194, 308);
+			this.GoButton.Location = new System.Drawing.Point(487, 412);
 			this.GoButton.Name = "GoButton";
 			this.GoButton.Size = new System.Drawing.Size(85, 38);
 			this.GoButton.TabIndex = 7;
@@ -132,11 +146,78 @@ namespace Dostavka
 			// 
 			this.openFile.FileName = "openFileDialog1";
 			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(75, 43);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(100, 15);
+			this.label1.TabIndex = 8;
+			this.label1.Text = "Дата";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(331, 43);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(100, 15);
+			this.label2.TabIndex = 9;
+			this.label2.Text = "Номер";
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(12, 109);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(100, 15);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "Товар";
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(12, 182);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(100, 15);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "Клиент";
+			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(12, 256);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(100, 15);
+			this.label5.TabIndex = 12;
+			this.label5.Text = "Телефон";
+			// 
+			// label6
+			// 
+			this.label6.Location = new System.Drawing.Point(12, 326);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(100, 15);
+			this.label6.TabIndex = 13;
+			this.label6.Text = "Адрес";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.Checked = true;
+			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.checkBox1.Location = new System.Drawing.Point(12, 404);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(232, 32);
+			this.checkBox1.TabIndex = 14;
+			this.checkBox1.Text = "Наша Доставка";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(485, 364);
+			this.ClientSize = new System.Drawing.Size(584, 462);
+			this.Controls.Add(this.checkBox1);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.GoButton);
 			this.Controls.Add(this.AddressBox);
 			this.Controls.Add(this.PhoneBox);

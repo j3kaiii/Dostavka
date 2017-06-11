@@ -7,3 +7,4 @@ C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostav
 C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.csproj.GenerateResource.Cache
 C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.exe
 C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.pdb
+C:\Users\user\Documents\SharpDevelop Projects\Dostavka\Dostavka\obj\Debug\Dostavka.DialogForm.resources
