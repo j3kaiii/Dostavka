@@ -31,6 +31,8 @@ namespace Dostavka
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.Button button1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -70,6 +72,8 @@ namespace Dostavka
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// todayBox
@@ -134,9 +138,9 @@ namespace Dostavka
 			// GoButton
 			// 
 			this.GoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.GoButton.Location = new System.Drawing.Point(487, 412);
+			this.GoButton.Location = new System.Drawing.Point(365, 463);
 			this.GoButton.Name = "GoButton";
-			this.GoButton.Size = new System.Drawing.Size(85, 38);
+			this.GoButton.Size = new System.Drawing.Size(137, 38);
 			this.GoButton.TabIndex = 7;
 			this.GoButton.Text = "Печать";
 			this.GoButton.UseVisualStyleBackColor = true;
@@ -199,18 +203,41 @@ namespace Dostavka
 			this.checkBox1.Checked = true;
 			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.checkBox1.Location = new System.Drawing.Point(12, 404);
+			this.checkBox1.Location = new System.Drawing.Point(47, 404);
 			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(232, 32);
+			this.checkBox1.Size = new System.Drawing.Size(180, 32);
 			this.checkBox1.TabIndex = 14;
 			this.checkBox1.Text = "Наша Доставка";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+			this.checkBox2.Location = new System.Drawing.Point(365, 399);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(155, 42);
+			this.checkBox2.TabIndex = 15;
+			this.checkBox2.Text = "Нужен занос";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+			this.button1.Location = new System.Drawing.Point(47, 463);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(157, 38);
+			this.button1.TabIndex = 16;
+			this.button1.Text = "Доставщик";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(584, 462);
+			this.ClientSize = new System.Drawing.Size(584, 527);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.checkBox2);
 			this.Controls.Add(this.checkBox1);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
@@ -227,6 +254,7 @@ namespace Dostavka
 			this.Controls.Add(this.todayBox);
 			this.Name = "MainForm";
 			this.Text = "Dostavka";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormFormClosed);
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.ResumeLayout(false);
 			this.PerformLayout();

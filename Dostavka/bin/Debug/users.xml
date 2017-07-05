@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<users>
+  <user name="Севостьянов">
+    <count>0</count>
+  </user>
+  <user name="Смирнов">
+    <count>0</count>
+  </user>
+  <user name = "Третьяков">
+	<count>0</count>
+  </user>
+  <user name = "Вальвас">
+	<count>0</count>
+  </user>
+  <user name = "Шаранов">
+	<count>0</count>
+  </user>
+  <user name = "Шутов">
+	<count>0</count>
+  </user>
+  <user name = "Иванцов">
+	<count>0</count>
+  </user>
+  <user name = "Гольянов">
+	<count>0</count>
+  </user>
+  <user name = "Ивков">
+	<count>0</count>
+  </user>
+</users>

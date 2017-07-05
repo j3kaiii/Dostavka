@@ -1,8 +1,8 @@
 ﻿/*
  * Created by SharpDevelop.
  * User: user
- * Date: 11.06.2017
- * Time: 10:40
+ * Date: 01.07.2017
+ * Time: 15:42
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
@@ -13,11 +13,11 @@ using System.Windows.Forms;
 namespace Dostavka
 {
 	/// <summary>
-	/// Description of DialogForm.
+	/// Description of ServiceForm.
 	/// </summary>
-	public partial class DialogForm : Form
+	public partial class ServiceForm : Form
 	{
-		public DialogForm()
+		public ServiceForm()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -27,6 +27,13 @@ namespace Dostavka
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		}
+		
+		public bool isClicked = false;
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			isClicked = true;
 		}
 	}
 }
